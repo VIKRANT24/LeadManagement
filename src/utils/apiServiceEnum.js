@@ -1,0 +1,6 @@
+export const apiServicesEnum = Object.freeze({
+  USER_SERVICE: "USER_SERVICE",
+  MSTER_SERVICE: "MSTER_SERVICE",
+  LEAD_SERVICE: "LEAD_SERVICE",
+  CAMPAIGN_SERVICE: "CAMPAIGN_SERVICE",
+});
