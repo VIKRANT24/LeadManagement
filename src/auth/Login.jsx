@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import LMlogo from "../assets/img/LMlogo.png";
+import LMlogo from "../assets/img/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { resendVerficationCode, userLogin } from "../services/userService";
 import AuthContext from "../store/auth/auth-context";
@@ -169,11 +169,11 @@ function Login() {
            {/* Toast Container */}
       <ToastContainer position="top-right" autoClose={1000} />
       <div class="auth-wrapper v3">
-        <div class="auth-form">
+        <div class="auth-form" style={{backgroundColor:'rgb(238, 242, 246)'}}>
           <div class="card my-5">
             <div class="card-body">
               <a href="#" class="d-flex justify-content-center">
-                <img src="../assets/images/logo-dark.svg" alt="image" class="img-fluid brand-logo" />
+                <img src={LMlogo} alt="image" class="img-fluid brand-logo vss-img" />
               </a>
               <div class="row">
                 <div class="d-flex justify-content-center">
@@ -183,35 +183,68 @@ function Login() {
                   </div>
                 </div>
               </div>
-              <div class="d-grid">
-                <button type="button" class="btn mt-2 bg-light-primary bg-light text-muted">
-                  <img src="../assets/images/authentication/google-icon.svg" alt="image" />Sign In With Google
-                </button>
-              </div>
-              <div class="saprator mt-3">
-                <span>or</span>
-              </div>
-              <h5 class="my-4 d-flex justify-content-center">Sign in with Email address</h5>
+              
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="Email address / Username" />
+                <input type="email" class="form-control" id="floatingInput" placeholder="Email address / Username" 
+                style={{ borderColor: emailError ? "red" : "#90909A" }}
+                name="emailId"
+                onChange={handleChange}
+                required
+                />
                 <label for="floatingInput">Email address / Username</label>
               </div>
+              {emailErrorMessage && (
+          <p className="error-message">{emailErrorMessage}</p>
+        )}
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput1" placeholder="Password" />
+                <input class="form-control" id="floatingInput1" placeholder="Password" 
+                 style={{
+                  borderColor: passwordError ? "red" : "#90909A",
+                  paddingRight: "40px",
+                }}
+                type={showPassword ? "text" : "password"}
+                name="password"
+                onChange={handleChange}
+                required
+                />
+                 <span
+              onClick={togglePasswordVisibility}
+              style={{
+                position: "absolute",
+                right: "10px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                cursor: "pointer",
+              }}
+            >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </span>
                 <label for="floatingInput1">Password</label>
               </div>
               <div class="d-flex mt-1 justify-content-between">
-                <div class="form-check">
+                <div class="form-check" style={{visibility:'hidden'}}>
                   <input class="form-check-input input-primary" type="checkbox" id="customCheckc1" checked="" />
                   <label class="form-check-label text-muted" for="customCheckc1">Remember me</label>
                 </div>
-                <h5 class="text-secondary">Forgot Password?</h5>
+                {/* <h5 class="text-secondary">Forgot Password?</h5> */}
+                <Link
+            to="/ForgotPassword"
+            className="text-secondary text-decoration-none"
+          >
+            Forgot Password?
+          </Link>
               </div>
               <div class="d-grid mt-4">
-                <button type="button" class="btn btn-secondary">Sign In</button>
+                <button type="submit" class="btn btn-secondary"
+                  onClick={handleLoginSubmit}
+                  disabled={!(inputdata.emailId && inputdata.password)}
+                >Sign In</button>
               </div>
               <hr />
-              <h5 class="d-flex justify-content-center">Don't have an account?</h5>
+              {/* <h5 class="d-flex justify-content-center">Don't have an account?</h5> */}
+              <Link to="/signUp" className="text-decoration-none d-flex justify-content-center"  style={{color:"#343a40"}}>
+              Don't have an account?
+          </Link>
             </div>
           </div>
         </div>
