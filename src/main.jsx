@@ -8,6 +8,11 @@ import "perfect-scrollbar/css/perfect-scrollbar.css";
 import "react-toastify/dist/ReactToastify.css";
 import "react-datepicker/dist/react-datepicker.css"; // Ensure CSS is imported
 
+import "./assets/scss/style.scss";
+import "./assets/scss/style-preset.scss";
+import "./assets/css/style.css"
+import "./assets/scss/landing.scss"
+
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { AuthContextProvider } from "./store/auth/auth-context";
