@@ -226,7 +226,13 @@ function Login() {
                   <input class="form-check-input input-primary" type="checkbox" id="customCheckc1" checked="" />
                   <label class="form-check-label text-muted" for="customCheckc1">Remember me</label>
                 </div>
-                <h5 class="text-secondary">Forgot Password?</h5>
+                {/* <h5 class="text-secondary">Forgot Password?</h5> */}
+                <Link
+            to="/ForgotPassword"
+            className="text-secondary text-decoration-none"
+          >
+            Forgot Password?
+          </Link>
               </div>
               <div class="d-grid mt-4">
                 <button type="submit" class="btn btn-secondary"
@@ -235,7 +241,10 @@ function Login() {
                 >Sign In</button>
               </div>
               <hr />
-              <h5 class="d-flex justify-content-center">Don't have an account?</h5>
+              {/* <h5 class="d-flex justify-content-center">Don't have an account?</h5> */}
+              <Link to="/signUp" className="text-decoration-none d-flex justify-content-center"  style={{color:"#343a40"}}>
+              Don't have an account?
+          </Link>
             </div>
           </div>
         </div>
