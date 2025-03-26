@@ -199,7 +199,7 @@ function SignUp() {
                         <div className="card mt-5">
                             <div className="card-body">
                                 <a href="#" className="d-flex justify-content-center mt-3">
-                                    <img src="/src/assets/img/logo.png" alt="image" className="img-fluid brand-logo" />
+                                    <img src={LMlogo} alt="image" />{/*className="img-fluid brand-logo" */}
                                 </a>
                                 {/*<div className="row">*/}
                                 {/*    <div className="d-flex justify-content-center">*/}
