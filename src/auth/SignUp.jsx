@@ -216,7 +216,7 @@ function SignUp() {
                                 {/*<div className="saprator mt-3">*/}
                                 {/*    <span>or</span>*/}
                                 {/*</div>*/}
-                                <h5 className="my-4 d-flex justify-content-center">Sign Up with Email address</h5>
+                                <h5 className="my-4 d-flex justify-content-center  f-16">Sign Up with Email address</h5>
                                 <div className="row">
                                     <div className="col-md-6">
                                         <div className="form-floating mb-3">
